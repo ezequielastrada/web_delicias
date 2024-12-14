@@ -1,0 +1,45 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Producto {
+  id            Int                  @id @default(autoincrement())
+  nombre        String
+  ingredientes  ProductoIngrediente[]
+  //@@map("productos") // Opcional: mapea a una tabla llamada "productos" en la base de datos
+}
+
+model Ingrediente {
+  id             Int                  @id @default(autoincrement())
+  nombre         String
+  precioUnitario Float
+  cantidad       Float
+  medida         String
+  productos      ProductoIngrediente[]
+
+ // @@map("ingredientes") // Opcional: mapea a una tabla llamada "ingredientes" en la base de datos
+}
+
+model ProductoIngrediente {
+  id                 Int     @id @default(autoincrement())
+  productoId         Int
+  ingredienteId      Int
+  cantidadPorProducto Float
+
+  producto           Producto   @relation(fields: [productoId], references: [id])
+  ingrediente        Ingrediente @relation(fields: [ingredienteId], references: [id])
+
+  @@unique([productoId, ingredienteId]) // Define una clave única compuesta
+  //@@map("producto_ingredientes") // Opcional: mapea a "producto_ingredientes" en la base de datos
+}
