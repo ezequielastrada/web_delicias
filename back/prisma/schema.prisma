@@ -16,6 +16,8 @@ datasource db {
 model Producto {
   id            Int                  @id @default(autoincrement())
   nombre        String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
   ingredientes  ProductoIngrediente[]
   //@@map("productos") // Opcional: mapea a una tabla llamada "productos" en la base de datos
 }
@@ -25,7 +27,10 @@ model Ingrediente {
   nombre         String
   precioUnitario Float
   cantidad       Float
-  medida         String
+  medida         String 
+  comercio       String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
   productos      ProductoIngrediente[]
 
  // @@map("ingredientes") // Opcional: mapea a una tabla llamada "ingredientes" en la base de datos
