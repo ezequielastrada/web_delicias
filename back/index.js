@@ -1,20 +1,20 @@
+const cors = require('cors')
 const express = require('express');
-const {PrismaClient} = require('@prisma/client')
+const routerIngredientes = require('./rutas/ingredientes.rutas')
 
 const app = express();
-const prisma = new PrismaClient()
 
+app.use(cors());
 app.use(express.json());
+
+app.use('/api/v1', routerIngredientes)
 
 app.get('/api/v1/productos', async (req,res) => {
   const productos = await prisma.producto.findMany()
   res.json(productos);
 })
 
-app.get('/api/v1/ingredientes', async (req,res)=>{
-  const ingredientes = await prisma.ingrediente.findMany()
-  res.json(ingredientes);
-})
+
 
 app.get('/api/v1/productoIngrediente' , async (req,res)=>{
   const productoIngrediente = await prisma.productoIngrediente.findMany()
