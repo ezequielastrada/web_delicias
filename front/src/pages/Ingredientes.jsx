@@ -12,7 +12,7 @@ function Ingredientes() {
       useEffect(() => {
         // Simulación de fetch
         const fetchDatos = async () => {
-          const response = await fetch('http://localhost:3000/api/v1/ingredientes'); // Cambia por tu endpoint
+          const response = await fetch('https://webdelicias-production.up.railway.app/api/v1/ingredientes'); // Cambia por tu endpoint
           const data = await response.json();
           setIngredientes(data); // Suponemos que 'data' es un array
         };

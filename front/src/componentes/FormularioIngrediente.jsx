@@ -17,7 +17,7 @@ function FormularioIngrediente() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Evita que se recargue la página
     try {
-      const response = await fetch('http://localhost:3000/api/v1/ingredientes', {
+      const response = await fetch('https://webdelicias-production.up.railway.app/api/v1/ingredientes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
