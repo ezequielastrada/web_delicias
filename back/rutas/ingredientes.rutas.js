@@ -8,7 +8,7 @@ routerIngredientes.get('/ingredientes', async (req,res)=>{
         const ingredientes = await getIngredientesService()
         res.status(200).json(ingredientes);
     }catch(error){
-        next(error);
+        res.status(500).json("ERROR")
     }
 })
 
@@ -20,7 +20,7 @@ routerIngredientes.post('/ingredientes', async (req,res)=>{
         res.status(201).json(respuesta);
     }catch(error){
         console.log(error)
-        next(error);
+        res.status(500).json("ERROR")
     }
 })
 
@@ -31,6 +31,7 @@ routerIngredientes.get('/ingredientes/:id', async (req,res)=>{
         res.status(200).json(ingrediente)
     }catch(error){
         console.log(error);
+        res.status(500).json("No existe tal id")
     }
 
 })
@@ -43,6 +44,7 @@ routerIngredientes.put('/ingredientes/:id', async (req, res)=>{
         res.status(200).json(respuesta)
     }catch(error){
         console.log(error);
+        res.status(500).json("ERROR")
     }
 })
 
@@ -53,7 +55,7 @@ routerIngredientes.delete('/ingredientes/:id', async (req, res)=>{
         res.status(200).json(respuesta)
     }catch(error){
         console.log(error);
-        res.status(500).json("No existe tal id")
+        res.status(500).json("ERROR")
     }
 })
 
