@@ -1,5 +1,7 @@
 const {getIngredientes,postIngrediente , getIngredienteById, updateIngrediente, deleteIngrdiente} = require('../repositorio/ingredientes.repositorio')
 const formatDate = require('../varios/formatDate')
+const convertirCantidadANumero = require('../varios/form')
+
 
 const getIngredientesService = async () => {
 
@@ -14,7 +16,11 @@ const getIngredientesService = async () => {
 }
 
 const postIngredientesService = async (datos) => {
-    const ingrediente = await postIngrediente(datos)
+    console.log('datos',datos)
+    const formateado = convertirCantidadANumero(datos)
+    console.log('formateado',formateado)
+    
+    const ingrediente = await postIngrediente(formateado)
     return ingrediente;
 }
 
