@@ -1,0 +1,33 @@
+.app__nav {
+	position: fixed; /* Fija el elemento en un lugar específico */
+  top: 0; /* Posición en la parte superior */
+  left: 0; /* Alineado al lado izquierdo */
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  z-index: 1000;
+  padding: 10px 20px;
+  color: white;
+  background-color: #333;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+
+	
+}
+
+.app__nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+	font-size: 12px;
+}
+
+
+.app__nav a:hover {
+    text-decoration: underline;
+  }
+
+.app__main {
+    margin-top: 60px;
+}
