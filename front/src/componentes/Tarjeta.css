@@ -5,13 +5,14 @@
     background-color: hsl(0, 0%, 100%);
     margin: 30px 20px;
     width: 400px;
-    align-items: center;
+    align-items: flex-start;
 }
 
-.main {
+.maino {
     display: flex;
     gap: 15px;
     align-items: center;
+    background-color: blue;
 }
 
 .main h1 {
@@ -36,9 +37,7 @@
     background-color: grey;
 }
 
-.precio {
-    padding-right: 5px;
-}
+
 
 .ingredientes table {
     border-spacing: 30px 5px;
