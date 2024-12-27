@@ -2,7 +2,11 @@ const {PrismaClient} = require('@prisma/client')
 const prisma = new PrismaClient()
 
 const getIngredientes = async () => {
-    const ingredientes = await prisma.ingrediente.findMany()
+    const ingredientes = await prisma.ingrediente.findMany({
+        orderBy: {
+            nombre: 'desc' // o 'desc' para ordenar de forma descendente
+        }
+    })
     return ingredientes
 }
 
