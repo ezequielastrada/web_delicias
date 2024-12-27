@@ -1,4 +1,4 @@
-import './botonNew.css'
+import './botonnew.css'
 
 function BotonNew() {
   return (
