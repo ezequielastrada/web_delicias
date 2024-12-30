@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './formularioIngrediente.module.css';
+import './formularioIngrediente.css';
 
 function FormularioIngrediente() {
 
@@ -38,11 +38,11 @@ function FormularioIngrediente() {
   };
 
     return (
-        <div className='form__div'>
+      <div className='form__div'>
     
-      <h1 className='form_h1'>Nuevo Ingrediente</h1>
+        <h1 className='form_h1'>Nuevo Ingrediente</h1>
 
-      <form onSubmit={handleSubmit} className='form__form'>
+        <form onSubmit={handleSubmit} className='form__form'>
       <label>
         Nombre:
         <input
@@ -81,15 +81,19 @@ function FormularioIngrediente() {
       </label>
       <label>
         Medida:
-        <input
-          type="text"
+        <select
           name="medida"
           value={formData.medida}
           onChange={handleChange}
-        />
+        
+        >
+          <option value="gr">Gr</option>
+          <option value="unidades">Unidades</option>
+        <option value="kg">Kg</option>
+      </select>
       </label>
       <button type="submit">Enviar</button>
-    </form>
+        </form>
 
 
       </div>
