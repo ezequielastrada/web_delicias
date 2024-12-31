@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function Ingredientes() {
 
-    const apiUrl = import.meta.env.VITE_APIURL_DEV
+    const apiUrl = import.meta.env.VITE_APIURL
     const [ingredientes, setIngredientes] = useState([]);
     
       useEffect(() => {
